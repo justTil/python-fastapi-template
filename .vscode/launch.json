@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Python: FastAPI",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/.venv/bin/uvicorn",
+      "args": ["app.main:app", "--reload", "--port", "8000"],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Python: Run Unit Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "unittest",
+      "args": [
+        "discover",
+        "-s",
+        "app.tests", // Change this to the directory where your tests are located
+        "-p",
+        "test_*.py" // Match the test naming pattern (e.g., `*_test.py` or `test_*.py`)
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
